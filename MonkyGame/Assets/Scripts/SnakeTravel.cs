@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class SnakeTravel : MonoBehaviour
 {
-    public float speed = 50f;
+    public float speed;
     public bool isExtended;
     public bool isAttached;
     public float rotationOffset;
     public Collider2D PlayerCollider;
+    
     //public DistanceJoint2D distanceJoint;
     public LineRenderer lineRenderer;
     private Vector3 target;
@@ -53,14 +54,16 @@ public class SnakeTravel : MonoBehaviour
         }
         if (isAttached)
         {
-            if(Input.GetMouseButtonUp(0))
+            if(!Input.GetMouseButton(0))
             {
                 isAttached = false;
             }
         }
         
         lineRenderer.SetPosition(0, Player.transform.position);
-        lineRenderer.SetPosition(1, transform.position);
+        Vector3 pos = transform.position;
+        pos.z = -0.3f;
+        lineRenderer.SetPosition(1, pos);
 
 
         Vector3 vectorToTarget = Player.transform.position - transform.position;
@@ -73,7 +76,7 @@ public class SnakeTravel : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other != PlayerCollider)
+        if (Input.GetMouseButton(0))
         {
             isAttached = true;
         }

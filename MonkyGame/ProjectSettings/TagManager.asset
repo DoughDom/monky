@@ -45,7 +45,7 @@ TagManager:
     locked: 0
   - name: BG
     uniqueID: 2295550249
-    locked: 0
+    locked: 1
   - name: PG
     uniqueID: 3338787161
     locked: 0

@@ -16,6 +16,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 82685804361f9c548af512c669a5a8b6, type: 3}
     - target: {fileID: 714342909562346453, guid: 67c5594b83d76e14086bc9b07230be05, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 714342909562346453, guid: 67c5594b83d76e14086bc9b07230be05, type: 3}
       propertyPath: m_SortingLayer
       value: 2
       objectReference: {fileID: 0}
@@ -37,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5825808377604074451, guid: 67c5594b83d76e14086bc9b07230be05, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.65955245
       objectReference: {fileID: 0}
     - target: {fileID: 5825808377604074451, guid: 67c5594b83d76e14086bc9b07230be05, type: 3}
       propertyPath: m_LocalScale.z

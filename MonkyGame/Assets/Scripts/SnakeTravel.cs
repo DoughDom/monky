@@ -9,8 +9,8 @@ public class SnakeTravel : MonoBehaviour
     public bool isAttached;
     public float rotationOffset;
     public Collider2D PlayerCollider;
-    
-    //public DistanceJoint2D distanceJoint;
+    public Rigidbody2D rb;    
+    public SpringJoint2D springJoint;
     public LineRenderer lineRenderer;
     private Vector3 target;
     //private Rigidbody2D rb;
@@ -21,7 +21,7 @@ public class SnakeTravel : MonoBehaviour
     {
         Player = GameObject.Find("Player");
         //distanceJoint.enabled = false;
-        isAttached = false;
+        springJoint.enabled = false;
         isExtended = false;
         transform.position = Player.transform.position;
         target = Player.transform.position;
@@ -30,40 +30,30 @@ public class SnakeTravel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isAttached)
+        if(Input.GetMouseButtonDown(0))
         {
-            if (transform.position == Player.transform.position)
-            {
-                isExtended = false;
-                lineRenderer.enabled = false;
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                isExtended = true;
-                lineRenderer.enabled = true;
-            }
-
-            else if (Input.GetMouseButtonUp(0))
-            {
-                target = Player.transform.position;
-            }
-            target.z = transform.position.z;
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            SetGrapplePoint();
         }
-        if (isAttached)
+        else if(Input.GetMouseButton(0))
         {
-            if(!Input.GetMouseButton(0))
+            if(transform.position == target)
             {
-                isAttached = false;
+                isAttached = true;
+                SetRope();
             }
         }
-        
+        else if(Input.GetMouseButtonUp(0))
+        {
+            isAttached = false;
+            target = Player.transform.position;
+            springJoint.enabled = false;
+            rb.gravityScale = 1;
+        }
         lineRenderer.SetPosition(0, Player.transform.position);
         Vector3 pos = transform.position;
         pos.z = -0.3f;
         lineRenderer.SetPosition(1, pos);
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
 
         Vector3 vectorToTarget = Player.transform.position - transform.position;
@@ -71,14 +61,26 @@ public class SnakeTravel : MonoBehaviour
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * speed);
     }
-
     
-
-    private void OnTriggerEnter2D(Collider2D other)
+    void SetGrapplePoint()
     {
-        if (Input.GetMouseButton(0))
+        Vector2 distanceVector = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        RaycastHit2D _hit = Physics2D.Raycast(transform.position, distanceVector.normalized);
+        isExtended = true;
+        if (Vector2.Distance(_hit.point, transform.position) <= 100)
         {
-            isAttached = true;
+            target = _hit.point;
+            isExtended = true;
         }
     }
+    void SetRope()
+    {
+        springJoint.autoConfigureDistance = true;
+        springJoint.frequency = 0;
+
+        springJoint.connectedAnchor = target;
+        springJoint.enabled = true;
+    }
 }
+
+

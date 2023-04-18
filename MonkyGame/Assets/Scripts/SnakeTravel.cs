@@ -81,8 +81,6 @@ public class SnakeTravel : MonoBehaviour
         lineRenderer.SetPosition(1, pos);
         transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-
-
     }
 
 

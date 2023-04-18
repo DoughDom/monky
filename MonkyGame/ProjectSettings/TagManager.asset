@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grapplable
   - Grappable
+  - Bitable
   layers:
   - Default
   - TransparentFX

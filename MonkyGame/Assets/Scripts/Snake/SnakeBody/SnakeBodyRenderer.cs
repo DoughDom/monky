@@ -15,9 +15,7 @@ public class SnakeBodyRenderer : MonoBehaviour
         lineRenderer = GetComponent<LineRenderer>();
 
         lineRenderer.enabled = false;
-
-        Vector3 playerPos = player.transform.position;
-        Vector3 snakePos = snake.transform.position;
+        lineRenderer.useWorldSpace = true;
     }
 
     // Update is called once per frame

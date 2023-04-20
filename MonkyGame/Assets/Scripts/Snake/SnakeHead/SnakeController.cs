@@ -25,18 +25,26 @@ public class SnakeController : MonoBehaviour
     public float speed;
     public float maxRange;
 
-    void Start()
+    public SpriteRenderer spriteRenderer;
+
+    void Awake()
     {
         speed = 40f;
         maxRange = 9f;
         currentState = idle;
         currentState.EnterState(this);
-    }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }   
 
     // Update is called once per frame
     void Update()
     {
         currentState.UpdateState(this);
+    }
+
+    void FixedUpdate()
+    {
+        currentState.FixedUpdateState(this);
     }
     
     void OnTriggerEnter2D(Collider2D other)
@@ -44,10 +52,11 @@ public class SnakeController : MonoBehaviour
         currentState.OnTriggerEnter2D(this, other);
     }
 
-    public void SwitchState(SnakeState state)
+    public void SwitchState(SnakeState newState)
     {
-        currentState = state;
-        state.EnterState(this);
+        currentState.ExitState(this);
+        currentState = newState;
+        currentState.EnterState(this);
     }
 
     public void RotateTowards(GameObject targetObject, float offset)

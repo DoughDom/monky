@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         speed = 10;
-        jumpSpeed = 50;
+        jumpSpeed = 15;
     }
 
     // Update is called once per frame

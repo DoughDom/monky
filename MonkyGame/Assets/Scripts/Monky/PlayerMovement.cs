@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Awake()
     {
-        speed = 10f;
+        speed = 6f;
     }
 
     void Update()

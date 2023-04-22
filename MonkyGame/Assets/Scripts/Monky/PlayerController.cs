@@ -52,10 +52,6 @@ public class PlayerController : MonoBehaviour
 			Vector2 perpVector = Vector2.Perpendicular(vectorFromTarget).normalized;
 			rb2d.AddForce(perpVector * speed * horizontalInput);
 		}
-		else
-		{
-			rb2d.AddForce(Vector2.right * speed * horizontalInput);
-		}
 	}
 	
 }

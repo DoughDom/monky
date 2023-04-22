@@ -14,9 +14,9 @@ TagManager:
   - 
   - Water
   - UI
-  - Monkey
+  - Bitable
+  - Player
   - Snake
-  - 
   - 
   - 
   - 
@@ -47,8 +47,11 @@ TagManager:
   - name: BG
     uniqueID: 2295550249
     locked: 1
-  - name: PG
+  - name: MG
     uniqueID: 3338787161
+    locked: 0
+  - name: PG
+    uniqueID: 2486174405
     locked: 0
   - name: FG
     uniqueID: 837708907

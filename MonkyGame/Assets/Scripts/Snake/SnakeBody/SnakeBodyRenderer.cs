@@ -24,10 +24,11 @@ public class SnakeBodyRenderer : MonoBehaviour
         Vector3 playerPos = player.transform.position;
         Vector3 snakePos = snake.transform.position;
 
-        lineRenderer.enabled = true;
         playerPos.z = transform.position.z;
         snakePos.z = transform.position.z;
-        lineRenderer.SetPosition(0, playerPos);
-        lineRenderer.SetPosition(1, snakePos);
+
+        lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, snakePos);
+        lineRenderer.SetPosition(1, playerPos);
     }
 }

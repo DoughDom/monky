@@ -10,6 +10,10 @@ public class SnakeRetractingState : SnakeState
         snake.state = SnakeController.State.Retracting;
         target = snake.Player.transform.position;
         extendBuffer = false;
+        if (snake.GetComponent<Collider2D>().IsTouchingLayers(7))
+        {
+            snake.SwitchState(snake.idle);
+        }
     }
 
     public override void UpdateState(SnakeController snake)

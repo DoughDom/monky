@@ -25,15 +25,18 @@ public class SnakeController : MonoBehaviour
     public float speed;
     public float maxRange;
 
-    public SpriteRenderer spriteRenderer;
+    public LayerMask whatIsBitable;
+
+
+    [HideInInspector]public SpriteRenderer spriteRenderer;
 
     void Awake()
     {
         speed = 40f;
-        maxRange = 9f;
+        maxRange = 7f;
+        spriteRenderer = GetComponent<SpriteRenderer>();
         currentState = idle;
         currentState.EnterState(this);
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }   
 
     // Update is called once per frame

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Controls all movement and behavior of snake
+
 public class SnakeController : MonoBehaviour
 {
     public enum State
@@ -15,6 +17,8 @@ public class SnakeController : MonoBehaviour
 
     public SnakeState currentState;
 
+    // Creates an instance of all 4 states of snake movement
+
     public SnakeIdleState idle = new SnakeIdleState();
     public SnakeExtendingState extending = new SnakeExtendingState();
     public SnakeRetractingState retracting = new SnakeRetractingState();
@@ -23,7 +27,9 @@ public class SnakeController : MonoBehaviour
     public float originalDistance;
     public GameObject Player;
     public float speed;
+    public float length;
     public float maxRange;
+    
 
     public LayerMask whatIsBitable;
 
@@ -33,7 +39,7 @@ public class SnakeController : MonoBehaviour
     void Awake()
     {
         speed = 40f;
-        maxRange = 7f;
+        maxRange = 8f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentState = idle;
         currentState.EnterState(this);
@@ -47,14 +53,17 @@ public class SnakeController : MonoBehaviour
 
     void FixedUpdate()
     {
+        length = Vector2.Distance(transform.position, Player.transform.position);
         currentState.FixedUpdateState(this);
     }
     
+    // On collision pass object in collision and snake obeject to OnTriggerEnter2D of current snake state
     void OnTriggerEnter2D(Collider2D other)
     {
         currentState.OnTriggerEnter2D(this, other);
     }
 
+    // When SwitchState is called take in new snake state and change the state to that new state
     public void SwitchState(SnakeState newState)
     {
         currentState.ExitState(this);
@@ -62,6 +71,7 @@ public class SnakeController : MonoBehaviour
         currentState.EnterState(this);
     }
 
+    // When RotateTowards is called take in targeted object and offset and changes direction of snake away from player
     public void RotateTowards(GameObject targetObject, float offset)
     {
         Vector3 vectorToTarget = targetObject.transform.position - transform.position;

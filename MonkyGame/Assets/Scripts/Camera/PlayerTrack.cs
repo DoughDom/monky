@@ -4,21 +4,15 @@ using UnityEngine;
 
 public class PlayerTrack : MonoBehaviour
 {
-
-    public Transform Player;
-    private Vector3 offset;
-
+    public Transform player;
+    public Transform floor;
     // Start is called before the first frame update
-    void Start()
-    {
     
-    }
-
     // Update is called once per frame
     void Update()
     {
-      Vector3 position = transform.position ;
-      position.y = (Player.position + offset).y;
-      transform.position = position ;
+        Vector3 pos = transform.position;
+        pos.y = player.position.y;
+        transform.position = pos;
     }
 }

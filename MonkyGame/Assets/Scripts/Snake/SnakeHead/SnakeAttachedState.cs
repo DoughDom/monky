@@ -25,7 +25,21 @@ public class SnakeAttachedState : SnakeState
         {
             snake.transform.position = originalPosition;
         }
-        snake.originalDistance = Mathf.Min(snake.originalDistance, Vector3.Distance(snake.transform.position, snake.Player.transform.position));
+        snake.originalDistance = Mathf.Min(snake.originalDistance, snake.length);
+        
+        if(snake.length < 0.7f)
+        {
+            snake.SwitchState(snake.retracting);
+        }
+
+        if(Input.GetMouseButton(1))
+        {
+            snake.originalDistance -= 0.08f;
+        }
+        else
+        {
+            snake.originalDistance -= 0.01f;
+        }
     }
 
     public override void OnTriggerEnter2D(SnakeController snake, Collider2D other)

@@ -15,7 +15,7 @@ public class SwingController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (snake.currentState == snake.attached)
         {

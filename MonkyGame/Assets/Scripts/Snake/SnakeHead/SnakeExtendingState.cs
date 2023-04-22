@@ -25,7 +25,7 @@ public class SnakeExtendingState : SnakeState
     public override void FixedUpdateState(SnakeController snake)
     {
         snake.transform.position = Vector2.MoveTowards(snake.transform.position, target, snake.speed * Time.deltaTime);
-        if((!Input.GetMouseButton(0)) || ((Vector2)snake.transform.position == target) || (Vector2.Distance(snake.transform.position, snake.Player.transform.position) >= snake.maxRange))
+        if((!Input.GetMouseButton(0)) || ((Vector2)snake.transform.position == target) || (snake.length >= snake.maxRange))
         {
             snake.SwitchState(snake.retracting);
         }
@@ -37,7 +37,7 @@ public class SnakeExtendingState : SnakeState
         {
             
             Vector2 distanceVector1 =  (Vector2)snake.transform.position - firePos;
-            RaycastHit2D hit = Physics2D.Raycast(firePos, distanceVector1.normalized, snake.maxRange, snake.whatIsBitable);
+            RaycastHit2D hit = Physics2D.Raycast(firePos, distanceVector1.normalized, snake.length + 1.5f, snake.whatIsBitable);
             if(hit)
             {
                 snake.transform.position = hit.point;

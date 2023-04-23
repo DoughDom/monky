@@ -30,7 +30,6 @@ public class SnakeController : MonoBehaviour
     public float length;
     public float maxRange;
     
-
     public LayerMask whatIsBitable;
 
 
@@ -38,8 +37,8 @@ public class SnakeController : MonoBehaviour
 
     void Awake()
     {
-        speed = 40f;
-        maxRange = 8f;
+        speed = 25f;
+        maxRange = 5.5f;
         spriteRenderer = GetComponent<SpriteRenderer>();
         currentState = idle;
         currentState.EnterState(this);

@@ -27,7 +27,7 @@ public class SnakeAttachedState : SnakeState
         }
         snake.originalDistance = Mathf.Min(snake.originalDistance, snake.length);
         
-        if(snake.length < 0.7f)
+        if(snake.length < 0.7f || snake.length - snake.originalDistance > 2f)
         {
             snake.SwitchState(snake.retracting);
         }

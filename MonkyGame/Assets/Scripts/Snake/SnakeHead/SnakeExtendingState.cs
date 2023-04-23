@@ -7,6 +7,7 @@ public class SnakeExtendingState : SnakeState
     
     public override void EnterState(SnakeController snake)
     {
+        snake.speed = 25f;
         snake.state = SnakeController.State.Extending;
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         firePos = snake.transform.position;

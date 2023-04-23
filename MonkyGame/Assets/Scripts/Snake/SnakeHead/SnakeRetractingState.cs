@@ -18,7 +18,7 @@ public class SnakeRetractingState : SnakeState
 
     public override void UpdateState(SnakeController snake)
     {
-        snake.RotateTowards(snake.Player, 0);
+        snake.RotateTowards(snake.Player.transform.position, 0);
         if(Input.GetMouseButtonDown(0))
         {
             extendBuffer = true;

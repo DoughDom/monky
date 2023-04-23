@@ -13,6 +13,7 @@ public class SnakeIdleState : SnakeState
 
     public override void UpdateState(SnakeController snake)
     {
+        snake.RotateTowards(Camera.main.ScreenToWorldPoint(Input.mousePosition), 180);
         if(Input.GetMouseButtonDown(0))
         {
             snake.SwitchState(snake.extending);

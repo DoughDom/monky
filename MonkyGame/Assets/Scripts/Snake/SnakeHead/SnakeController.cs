@@ -72,9 +72,9 @@ public class SnakeController : MonoBehaviour
     }
 
     // When RotateTowards is called take in targeted object and offset and changes direction of snake away from player
-    public void RotateTowards(GameObject targetObject, float offset)
+    public void RotateTowards(Vector3 target, float offset)
     {
-        Vector3 vectorToTarget = targetObject.transform.position - transform.position;
+        Vector3 vectorToTarget = target - transform.position;
         float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg - (-90 + offset);
         Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = q;

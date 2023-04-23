@@ -12,7 +12,7 @@ public class SnakeAttachedState : SnakeState
 
     public override void UpdateState(SnakeController snake)
     {
-        snake.RotateTowards(snake.Player, 0);
+        snake.RotateTowards(snake.Player.transform.position, 0);
     }
 
     public override void FixedUpdateState(SnakeController snake)

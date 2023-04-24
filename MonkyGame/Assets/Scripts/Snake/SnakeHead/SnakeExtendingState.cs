@@ -15,8 +15,8 @@ public class SnakeExtendingState : SnakeState
         targetDistance = target - firePos;
         //targetDistance.x = targetDistance.x / Mathf.Abs(targetDistance.x) * snake.speed;
         //targetDistance.y = targetDistance.y / Mathf.Abs(targetDistance.y) * snake.speed;
-        Debug.Log(targetDistance.x);
-        Debug.Log(targetDistance.y);
+        //Debug.Log(targetDistance.x);
+        //Debug.Log(targetDistance.y);
         snake.GetComponent<Rigidbody2D>().AddForce(targetDistance.normalized * snake.speed, ForceMode2D.Impulse);
         if (snake.GetComponent<Collider2D>().IsTouchingLayers(snake.whatIsBitable))
         {
@@ -55,7 +55,7 @@ public class SnakeExtendingState : SnakeState
             {
                 snake.transform.position = hit.point;
             }
-            Debug.Log(snake.GetComponent<Rigidbody2D>().velocity);
+            //Debug.Log(snake.GetComponent<Rigidbody2D>().velocity);
             snake.SwitchState(snake.attached);
         }
         else if(other.gameObject != snake.Player)

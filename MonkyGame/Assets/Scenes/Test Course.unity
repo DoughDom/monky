@@ -1342,6 +1342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 2143885400}
   Player: {fileID: 1709216974}
+  peanutCountOn: 0
 --- !u!61 &286045815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6551,7 +6552,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709216974}
   m_LocalRotation: {x: -0, y: -0, z: 0.0018593326, w: 0.9999983}
-  m_LocalPosition: {x: -8.38, y: -4.43, z: -0.5}
+  m_LocalPosition: {x: -7.92, y: -4.48, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7587,7 +7588,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0:00
+  m_text: 0:00.000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7650,7 +7651,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: -23.494364}
+  m_margin: {x: -83.31108, y: 0, z: 0, w: -23.494364}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

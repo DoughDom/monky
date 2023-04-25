@@ -7,7 +7,7 @@ public class Goal : MonoBehaviour
     public TimerUpdate timer;
     [SerializeField] private GameObject Player;
     private int totalPeanuts;
-    [SerializeField] private bool peanutCountOn;
+    public bool peanutCountOn;
 
     void Awake()
     {
@@ -17,11 +17,14 @@ public class Goal : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D()
     {
-        if (totalPeanuts == Player.GetComponent<CollectObject>().peanutCount && peanutCountOn)
+        if (peanutCountOn)
         {
-            timer.stopped = true;
+            if (totalPeanuts == Player.GetComponent<CollectObject>().peanutCount)
+            {
+                timer.stopped = true;
+            }
         }
-        else if (totalPeanuts == Player.GetComponent<CollectObject>().peanutCount)
+        else
         {
             timer.stopped = true;
         }

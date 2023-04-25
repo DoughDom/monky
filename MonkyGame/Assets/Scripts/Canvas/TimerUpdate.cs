@@ -24,14 +24,16 @@ public class TimerUpdate : MonoBehaviour
         }
         int minutes = (int)timePassed / 60;
         int seconds = (int)timePassed % 60;
+        int milliseconds = (int)(timePassed * 1000) % 1000;
         string sMin = minutes.ToString();
         string sSec = seconds.ToString();
+        string sMill = milliseconds.ToString();
         
         if(seconds < 10)
         {
             sSec = "0" + seconds.ToString();
         }
         
-        UIText.text = sMin + ":" + sSec;
+        UIText.text = sMin + ":" + sSec + "." + sMill;
     }
 }

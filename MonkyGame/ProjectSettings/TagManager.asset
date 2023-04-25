@@ -4,9 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Grapplable
-  - Grappable
   - Bitable
+  - Collectible
   layers:
   - Default
   - TransparentFX

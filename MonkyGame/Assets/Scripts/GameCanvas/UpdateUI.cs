@@ -7,16 +7,17 @@ public class UpdateUI : MonoBehaviour
 {
     [SerializeField] private GameObject ObjectPrefab;
     private TextMeshProUGUI UIText;
-    private string ObjectID;
+    private int count;
 
     private void Awake()
     {
         UIText = GetComponent<TextMeshProUGUI>();
-        ObjectID = ObjectPrefab.GetComponent<Object>().ID;
+        count = ObjectPrefab.GetComponent<CollectObject>().peanutCount;
     }
 
     private void LateUpdate()
     {
-        UIText.text = PlayerPrefs.GetInt(ObjectID).ToString();
+        count = ObjectPrefab.GetComponent<CollectObject>().peanutCount;
+        UIText.text = count.ToString();
     }
 }

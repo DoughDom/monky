@@ -5,19 +5,22 @@ using TMPro;
 
 public class UpdateUI : MonoBehaviour
 {
-    [SerializeField] private GameObject ObjectPrefab;
+    [SerializeField] private GameObject PeanutPrefab;
+    [SerializeField] private GameObject GoalPrefab;
     private TextMeshProUGUI UIText;
     private int count;
+    private int totalCount;
 
     private void Awake()
     {
         UIText = GetComponent<TextMeshProUGUI>();
-        count = ObjectPrefab.GetComponent<CollectObject>().peanutCount;
+        count = PeanutPrefab.GetComponent<CollectObject>().peanutCount;
+        totalCount = GoalPrefab.GetComponent<Goal>().totalPeanuts;
     }
 
     private void LateUpdate()
     {
-        count = ObjectPrefab.GetComponent<CollectObject>().peanutCount;
-        UIText.text = count.ToString();
+        count = PeanutPrefab.GetComponent<CollectObject>().peanutCount;
+        UIText.text = (count.ToString() + "/" + totalCount.ToString());
     }
 }

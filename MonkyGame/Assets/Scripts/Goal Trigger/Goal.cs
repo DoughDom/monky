@@ -6,7 +6,7 @@ public class Goal : MonoBehaviour
 {
     public TimerUpdate timer;
     [SerializeField] private GameObject Player;
-    private int totalPeanuts;
+    public int totalPeanuts;
     public bool peanutCountOn;
 
     void Awake()

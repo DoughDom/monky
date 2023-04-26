@@ -1342,7 +1342,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 2143885400}
   Player: {fileID: 1709216974}
-  peanutCountOn: 0
+  totalPeanuts: 0
+  peanutCountOn: 1
 --- !u!61 &286045815
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6043,7 +6044,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4323d5bc76d97f8408431118a4501012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectPrefab: {fileID: 1709216974}
+  PeanutPrefab: {fileID: 1709216974}
+  GoalPrefab: {fileID: 286045812}
 --- !u!4 &1520643195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8033696783221526551, guid: 0404101f3992e094d9c67dd249024033, type: 3}
